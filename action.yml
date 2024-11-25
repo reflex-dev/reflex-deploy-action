@@ -1,0 +1,34 @@
+name: Reflex Deploy Action
+description: Deploy Reflex apps to Reflex Cloud hosting.
+inputs:
+  auth_token:
+    description: Reflex authentication token (stored as a secret).
+    required: true
+  project_id:
+    description: The ID of the Reflex project to deploy to (stored as a secret).
+    required: true
+  app_directory:
+    description: The subfolder containing the Reflex app (default is root).
+    required: false
+    default: "."
+runs:
+  using: "composite"
+  steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Install Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.9"
+
+    - name: Install Reflex CLI
+      run: |
+        pip install -r {{ inputs.app_directory }}/requirements.txt
+
+    - name: Deploy Reflex App
+      run: |
+        cd ${{ inputs.app_directory }}
+        reflex deploy --token ${{ inputs.auth_token }} --project-id ${{ inputs.project_id }}
+      env:
+        REFLEX_AUTH_TOKEN: ${{ inputs.auth_token }}
