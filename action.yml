@@ -29,7 +29,7 @@ runs:
         python-version: ${{ inputs.python_version }}
     - name: Install Reflex CLI
       run: |
-        pip install -r {{ inputs.app_directory }}/requirements.txt
+        pip install -r ${{ inputs.app_directory }}/requirements.txt
       shell: bash
     - name: Deploy Reflex App
       run: |
