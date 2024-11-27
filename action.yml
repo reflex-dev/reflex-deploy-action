@@ -1,5 +1,5 @@
 name: Reflex Deploy Action
-description: Deploy Reflex apps to Reflex Cloud hosting.
+description: Deploy Reflex apps to Reflex Cloud.
 inputs:
   auth_token:
     description: Reflex authentication token (stored as a secret).
@@ -23,17 +23,14 @@ runs:
   steps:
     - name: Check out code
       uses: actions/checkout@v4
-      shell: bash
     - name: Install Python
       uses: actions/setup-python@v5
       with:
         python-version: ${{ inputs.python_version }}
-      shell: bash
     - name: Install Reflex CLI
       run: |
         pip install -r {{ inputs.app_directory }}/requirements.txt
       shell: bash
-
     - name: Deploy Reflex App
       run: |
         cd ${{ inputs.app_directory }}
