@@ -32,6 +32,8 @@ jobs:
           auth_token: ${{ secrets.REFLEX_AUTH_TOKEN }}
           project_id: ${{ secrets.REFLEX_PROJECT_ID }}
           app_directory: "my-app-folder" # Optional, defaults to root
+          extra_args: "--env THIRD_PARTY_APIKEY=***" # Optional
+          python_version: "3.13" # Optional
 ```
 ### Set Up Your Secrets
 Store your Reflex authentication token securely in your repository's secrets:
@@ -41,11 +43,11 @@ Store your Reflex authentication token securely in your repository's secrets:
 3. Add a new secret with the name `REFLEX_AUTH_TOKEN` and paste your Reflex Cloud authentication token.
 
 ### Inputs
-| Name | Description | Required | Default |
-|:- |:- |:- |:- |
-|auth_token   | Reflex authentication token stored in GitHub Secrets. | ✅ |	N/A |
-|project_id   | The ID of the project you want to deploy to. |	✅ |	N/A |
-|app_directory|	The directory containing your Reflex app.|	❌	| . (root)|
-|extra_args	| Additional arguments to pass to the `reflex deploy` command. |	❌	| N/A |
-|python_version|	The Python version to use for the deployment environment. |	❌	| 3.9 |
+|     Name     | Description                                                  | Required | Default |
+|:------------ |:------------------------------------------------------------ |:-------- |:------- |
+|auth_token    | Reflex authentication token stored in GitHub Secrets.        |    ✅    |	N/A   |
+|project_id    | The ID of the project you want to deploy to.                 |    ✅    |   N/A   |
+|app_directory | The directory containing your Reflex app.                    |	   ❌    | . (root)|
+|extra_args	   | Additional arguments to pass to the `reflex deploy` command. |	   ❌    |   N/A   |
+|python_version| The Python version to use for the deployment environment.    |	   ❌    |   3.9   |
 
