@@ -11,6 +11,13 @@ inputs:
     description: The subfolder containing the Reflex app (default is root).
     required: false
     default: "."
+  extra_args:
+    description: Additional arguments to pass to the Reflex CLI.
+    required: false
+  python_version:
+    description: The version of Python to use.
+    required: false
+    default: "3.9"
 runs:
   using: "composite"
   steps:
@@ -20,7 +27,7 @@ runs:
     - name: Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.9"
+        python-version: ${{ inputs.python_version }}
 
     - name: Install Reflex CLI
       run: |
@@ -29,6 +36,4 @@ runs:
     - name: Deploy Reflex App
       run: |
         cd ${{ inputs.app_directory }}
-        reflex deploy --token ${{ inputs.auth_token }} --project-id ${{ inputs.project_id }}
-      env:
-        REFLEX_AUTH_TOKEN: ${{ inputs.auth_token }}
+        reflex deployv2 --token ${{ inputs.auth_token }} --project-id ${{ inputs.project_id }} --no-interactive  ${{ inputs.extra_args }}
