@@ -2,7 +2,7 @@
 This GitHub Action simplifies the deployment of Reflex applications to Reflex Cloud. It handles setting up the environment, installing the Reflex CLI, and deploying your app with minimal configuration.
 
 > [!WARNING]
-> This action requires reflex version 0.6.6 or higher
+> This action requires reflex>=0.6.6.
 
 **Features:**
 - Deploy Reflex apps directly from your GitHub repository to Reflex Cloud.
@@ -27,9 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Reflex Cloud
-        uses: your-username/reflex-deploy-action@v1
+        uses: reflex-dev/reflex-deploy-action@v1
         with:
           auth_token: ${{ secrets.REFLEX_AUTH_TOKEN }}
+          project_id: ${{ secrets.REFLEX_PROJECT_ID }}
           app_directory: "my-app-folder" # Optional, defaults to root
 ```
 ## Set Up Your Secrets
