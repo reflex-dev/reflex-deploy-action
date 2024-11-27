@@ -14,7 +14,6 @@ This GitHub Action simplifies the deployment of Reflex applications to Reflex Cl
 Create a .github/workflows/deploy.yml file in your repository and add the following:
 
 ```yaml
-Copy code
 name: Deploy Reflex App
 
 on:
@@ -35,6 +34,7 @@ jobs:
           extra_args: "--env THIRD_PARTY_APIKEY=***" # Optional
           python_version: "3.13" # Optional
 ```
+
 ### Set Up Your Secrets
 Store your Reflex authentication token securely in your repository's secrets:
 
