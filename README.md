@@ -40,7 +40,7 @@ Store your Reflex authentication token securely in your repository's secrets:
 
 1. Go to your GitHub repository.
 2. Navigate to Settings > Secrets and variables > Actions > New repository secret.
-3. Add a new secret with the name `REFLEX_AUTH_TOKEN` and paste your Reflex Cloud authentication token.
+3. Create new secrets for `REFLEX_AUTH_TOKEN` and `REFLEX_PROJECT_ID`. (See [the deploy docs](https://reflex.dev/docs/hosting/deploy/) for more information on how to get these values.)
 
 ### Inputs
 |     Name     | Description                                                  | Required | Default |
