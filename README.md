@@ -31,12 +31,13 @@ jobs:
           auth_token: ${{ secrets.REFLEX_AUTH_TOKEN }}
           project_id: ${{ secrets.REFLEX_PROJECT_ID }}
           app_directory: "my-app-folder" # Optional, defaults to root
-          extra_args: "--env THIRD_PARTY_APIKEY=***" # Optional
+          extra_args: "--env THIRD_PARTY_APIKEY=${{ secrets.THIRD_PARTY_APIKEY }}" # Optional
           python_version: "3.13" # Optional
+          dry_run: "false" # Optional
 ```
 
 ### Set Up Your Secrets
-Store your Reflex authentication token securely in your repository's secrets:
+Store your Reflex secrets securely in your repository:
 
 1. Go to your GitHub repository.
 2. Navigate to Settings > Secrets and variables > Actions > New repository secret.
@@ -50,4 +51,5 @@ Store your Reflex authentication token securely in your repository's secrets:
 |app_directory | The directory containing your Reflex app.                    |	   ❌    | . (root)|
 |extra_args	   | Additional arguments to pass to the `reflex deploy` command. |	   ❌    |   N/A   |
 |python_version| The Python version to use for the deployment environment.    |	   ❌    |   3.9   |
+|dry_run       | Whether to run the deployment in dry-run mode.               |	   ❌    |  false  |
 
