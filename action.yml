@@ -38,8 +38,13 @@ runs:
           echo "Error: 'reflex' is not listed in $REQUIREMENTS_FILE."
           exit 1
         fi
-        pip install -r "$REQUIREMENTS_FILE"
-      shell: bash
+        if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+          echo "Dry run enabled, skipping Reflex & Dependencies installation."
+        else          
+          pip install -r "$REQUIREMENTS_FILE"
+        fi
+  shell: bash
+
     - name: Deploy Reflex App
       run: |
         cd ${{ inputs.app_directory }}
