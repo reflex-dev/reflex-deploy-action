@@ -43,8 +43,7 @@ runs:
         else          
           pip install -r "$REQUIREMENTS_FILE"
         fi
-  shell: bash
-
+      shell: bash
     - name: Deploy Reflex App
       run: |
         cd ${{ inputs.app_directory }}
