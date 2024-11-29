@@ -47,7 +47,7 @@ runs:
     - name: Deploy Reflex App
       run: |
         cd ${{ inputs.app_directory }}
-        if [[ "${{ github.event.inputs.dry_run }}" == "true" ]]; then
+        if [[ "${{ inputs.dry_run }}" == "true" ]]; then
           echo "Dry run enabled, skipping reflex deployv2."
         else
           reflex deployv2 --token ${{ inputs.auth_token }} --project ${{ inputs.project_id }} --no-interactive  ${{ inputs.extra_args }}
