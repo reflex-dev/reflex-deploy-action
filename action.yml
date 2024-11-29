@@ -47,4 +47,5 @@ runs:
           echo "Dry run enabled, skipping reflex deployv2."
         else
           reflex deployv2 --token ${{ inputs.auth_token }} --project ${{ inputs.project_id }} --no-interactive  ${{ inputs.extra_args }}
+        fi
       shell: bash
