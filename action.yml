@@ -22,6 +22,10 @@ inputs:
     description: Whether to run the deployment in dry-run mode.
     required: false
     default: "false"
+branding:
+    icon: upload-cloud
+    color: purple
+
 runs:
   using: "composite"
   steps:
