@@ -2,7 +2,7 @@
 This GitHub Action simplifies the deployment of Reflex applications to Reflex Cloud. It handles setting up the environment, installing the Reflex CLI, and deploying your app with minimal configuration.
 
 > [!WARNING]
-> This action requires reflex>=0.6.6.
+> This action requires reflex>=0.6.6.post1. If you are using an older version, please update your Reflex CLI.
 
 **Features:**
 - Deploy Reflex apps directly from your GitHub repository to Reflex Cloud.
@@ -32,7 +32,7 @@ jobs:
           project_id: ${{ secrets.REFLEX_PROJECT_ID }}
           app_directory: "my-app-folder" # Optional, defaults to root
           extra_args: "--env THIRD_PARTY_APIKEY=${{ secrets.THIRD_PARTY_APIKEY }}" # Optional
-          python_version: "3.13" # Optional
+          python_version: "3.12" # Optional
           dry_run: "false" # Optional
 ```
 
@@ -50,6 +50,6 @@ Store your Reflex secrets securely in your repository:
 |project_id    | The ID of the project you want to deploy to.                 |    ✅    |   N/A   |
 |app_directory | The directory containing your Reflex app.                    |	   ❌    | . (root)|
 |extra_args	   | Additional arguments to pass to the `reflex deploy` command. |	   ❌    |   N/A   |
-|python_version| The Python version to use for the deployment environment.    |	   ❌    |   3.9   |
+|python_version| The Python version to use for the deployment environment.    |	   ❌    |   3.12  |
 |dry_run       | Whether to run the deployment in dry-run mode.               |	   ❌    |  false  |
 
