@@ -52,7 +52,7 @@ runs:
       run: |
         cd ${{ inputs.app_directory }}
         if [[ "${{ inputs.dry_run }}" == "true" ]]; then
-          echo "Dry run enabled, skipping reflex deployv2."
+          echo "Dry run enabled, skipping reflex deploy."
         else
           reflex deploy --token ${{ inputs.auth_token }} --project ${{ inputs.project_id }} --no-interactive  ${{ inputs.extra_args }}
         fi
