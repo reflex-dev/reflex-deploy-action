@@ -52,4 +52,5 @@ Store your Reflex secrets securely in your repository:
 |extra_args	   | Additional arguments to pass to the `reflex deploy` command. |	   ❌    |   N/A   |
 |python_version| The Python version to use for the deployment environment.    |	   ❌    |   3.12  |
 |dry_run       | Whether to run the deployment in dry-run mode.               |	   ❌    |  false  |
+|skip_checkout | Whether to skip checking out the code, useful for deploying local changes made by an earlier pipeline step.               |	   ❌    |  false  |
 
